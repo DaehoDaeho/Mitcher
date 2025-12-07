@@ -51,7 +51,7 @@ public class PlayerInteraction : MonoBehaviour
             Interactable interactable = hit.collider.GetComponent<Interactable>();
             if(interactable != null)
             {
-                interactable.Interact();
+                interactable.Interact(transform);
             }
         }
     }

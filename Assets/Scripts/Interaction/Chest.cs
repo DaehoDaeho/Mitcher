@@ -47,7 +47,7 @@ public class Chest : Interactable
         }
     }
 
-    public override void Interact()
+    public override void Interact(Transform owner)
     {
         isOpened = !isOpened;
 
