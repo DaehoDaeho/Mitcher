@@ -40,6 +40,7 @@ public class GameOverUI : MonoBehaviour
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(true);
+            Time.timeScale = 0.0f;
         }
     }
 }

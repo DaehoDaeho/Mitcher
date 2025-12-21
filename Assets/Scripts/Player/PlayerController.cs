@@ -78,11 +78,11 @@ public class PlayerController : MonoBehaviour
 
         if(movementInput.x < 0.0f)
         {
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = false;
         }
         else if(movementInput.x > 0.0f)
         {
-            spriteRenderer.flipX = false;
+            spriteRenderer.flipX = true;
         }
     }
 }
