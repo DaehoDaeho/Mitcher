@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private SpriteRenderer spriteRenderer;
 
+    [SerializeField]
+    private DialogueUI dialogueUI;
+
     private Vector2 movementInput = Vector2.zero;   // 플레이어가 방향 키를 입력했을 때 그 입력 값을 받아 계산한 방향 벡터를 저장.
 
     private void Awake()
@@ -32,6 +35,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (dialogueUI != null && dialogueUI.IsOpen() == true)
+        {
+            return;
+        }
+
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -43,6 +51,14 @@ public class PlayerController : MonoBehaviour
 
         UpdateAnimation();
         UpdateDirection();
+
+        //if(movementInput.sqrMagnitude != 0.0f)
+        //{
+        //    if (dialogueUI != null && dialogueUI.IsOpen() == true)
+        //    {
+        //        dialogueUI.CloseDialogue();
+        //    }
+        //}
     }
 
     private void FixedUpdate()

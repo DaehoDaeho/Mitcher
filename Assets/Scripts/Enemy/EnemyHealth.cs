@@ -11,6 +11,9 @@ public class EnemyHealth : MonoBehaviour
 
     public event Action<int, int> OnChangedHP;
 
+    [SerializeField] private bool isSlimeQuestTarget = false;   // 이 몬스터가 슬라임 퀘스트 대상인지 여부.
+    [SerializeField] private QuestManager questManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -47,6 +50,16 @@ public class EnemyHealth : MonoBehaviour
     /// </summary>
     private void Die()
     {
+        // 만약 슬라임 퇴치 퀘스트의 대상이면.
+        if(isSlimeQuestTarget == true)
+        {
+            if(questManager != null)
+            {
+                // 퀘스트 매니저에 사망을 통보한다.
+                questManager.ReportSlimeKilled();
+            }
+        }
+
         Destroy(gameObject);
     }
 

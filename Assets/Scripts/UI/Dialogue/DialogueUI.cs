@@ -99,7 +99,7 @@ public class DialogueUI : MonoBehaviour
     /// <summary>
     /// 대화창을 닫고, 상태를 초기화한다
     /// </summary>
-    void CloseDialogue()
+    public void CloseDialogue()
     {
         if(dialoguePanel != null)
         {
